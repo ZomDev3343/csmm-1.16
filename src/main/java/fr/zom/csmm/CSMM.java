@@ -1,5 +1,7 @@
 package fr.zom.csmm;
 
+import fr.zom.csmm.init.ModItems;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -16,6 +18,9 @@ public class CSMM
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModItems.ITEMS.register(bus);
 
     }
 
