@@ -1,4 +1,5 @@
 {
   "item.copper_ingot.name": "Copper Ingot",
-  "item.copper_stick.name": "Copper Stick"
+  "item.copper_stick.name": "Copper Stick",
+  "block.csmm.blue_emerald_block": "Blue Emerald Block"
 }

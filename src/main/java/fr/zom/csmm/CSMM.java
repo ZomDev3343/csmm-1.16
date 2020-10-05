@@ -1,5 +1,6 @@
 package fr.zom.csmm;
 
+import fr.zom.csmm.init.ModBlocks;
 import fr.zom.csmm.init.ModItems;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -21,6 +22,7 @@ public class CSMM
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.ITEMS.register(bus);
+        ModBlocks.BLOCKS.register(bus);
 
     }
 
