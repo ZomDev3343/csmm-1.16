@@ -1,6 +1,7 @@
 package fr.zom.csmm.init;
 
 import fr.zom.csmm.CSMM;
+import fr.zom.csmm.blocks.BlockRedEmerald;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -18,7 +19,8 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, CSMM.MODID);
 
 
-    public static final RegistryObject<Block> BLUE_EMERALD_BLOCK = createBlock("blue_emerald_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(2).func_235861_h_()));
+    public static final RegistryObject<Block> BLUE_EMERALD_BLOCK = createBlock("blue_emerald_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(2).setRequiresTool()));
+    public static final RegistryObject<Block> RED_EMERALD_BLOCK = createBlock("red_emerald_block", BlockRedEmerald::new);
 
 
     public static RegistryObject<Block> createBlock(String name, Supplier<? extends Block> supplier)
