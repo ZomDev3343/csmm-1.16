@@ -18,7 +18,7 @@ import net.minecraftforge.common.ToolType;
 
 public class BlockRedEmerald extends Block {
     public BlockRedEmerald() {
-        super(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(5f , 20f).harvestTool(ToolType.PICKAXE).harvestLevel(1).setRequiresTool());
+        super(AbstractBlock.Properties.of(Material.METAL).strength(5f , 20f).harvestTool(ToolType.PICKAXE).harvestLevel(1).requiresCorrectToolForDrops());
     }
 
     @Override
@@ -32,17 +32,16 @@ public class BlockRedEmerald extends Block {
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 
-        if(worldIn.getTileEntity(pos) instanceof TileEntityRedEmerald)
+        if(worldIn.getBlockEntity(pos) instanceof TileEntityRedEmerald)
         {
-            TileEntityRedEmerald te = (TileEntityRedEmerald) worldIn.getTileEntity(pos);
-            player.sendStatusMessage(new StringTextComponent("Counter : " + te.getCounter()), true);
+            TileEntityRedEmerald te = (TileEntityRedEmerald) worldIn.getBlockEntity(pos);
+            player.displayClientMessage(new StringTextComponent("Counter : " + te.getCounter()), true);
             return ActionResultType.SUCCESS;
         }
 
         return ActionResultType.PASS;
     }
-
 
 }

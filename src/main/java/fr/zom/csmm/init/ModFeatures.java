@@ -18,10 +18,10 @@ public class ModFeatures {
 
     public void init()
     {
-        ORE_AMETHYST_FEATURE = register("ore_amethyst", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.AMETHYST_ORE.get().getDefaultState(), 6))
-        .square()
+        ORE_AMETHYST_FEATURE = register("ore_amethyst", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.AMETHYST_ORE.get().defaultBlockState(), 6))
+        .squared()
         .range(18)
-        .func_242731_b(20));
+        .count(20));
     }
 
     public <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> feature)
@@ -35,7 +35,7 @@ public class ModFeatures {
         BiomeGenerationSettingsBuilder generation = e.getGeneration();
         if(e.getCategory() != Biome.Category.NETHER)
         {
-            generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_AMETHYST_FEATURE);
+            generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_AMETHYST_FEATURE);
         }
     }
 

@@ -11,5 +11,5 @@ public class ModTileEntities {
 
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, CSMM.MODID);
 
-    public static final RegistryObject<TileEntityType<?>> RED_EMERALD_TILE_ENTITIY = TILE_ENTITIES.register("red_emerald_tile_entity", () -> TileEntityType.Builder.create(TileEntityRedEmerald::new, ModBlocks.RED_EMERALD_BLOCK.get()).build(null));
+    public static final RegistryObject<TileEntityType<?>> RED_EMERALD_TILE_ENTITIY = TILE_ENTITIES.register("red_emerald_tile_entity", () -> TileEntityType.Builder.of(TileEntityRedEmerald::new, ModBlocks.RED_EMERALD_BLOCK.get()).build(null));
 }

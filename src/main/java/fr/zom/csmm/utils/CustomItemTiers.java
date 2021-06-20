@@ -6,7 +6,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
 
 public enum CustomItemTiers implements IItemTier {
-    COPPER(1, 420, 4.8f, 1.5f, 10, new LazyValue<>(() -> {return Ingredient.fromItems(ModItems.COPPER_INGOT.get());}));
+    COPPER(1, 420, 4.8f, 1.5f, 10, new LazyValue<>(() -> {return Ingredient.of(ModItems.COPPER_INGOT.get());}));
 
     private final int harvestLevel;
     private final int maxUses;
@@ -25,32 +25,32 @@ public enum CustomItemTiers implements IItemTier {
     }
 
     @Override
-    public int getMaxUses() {
+    public int getUses() {
         return maxUses;
     }
 
     @Override
-    public float getEfficiency() {
+    public float getSpeed() {
         return efficiency;
     }
 
     @Override
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return attackDamage;
     }
 
     @Override
-    public int getHarvestLevel() {
+    public int getLevel() {
         return harvestLevel;
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return enchantability;
     }
 
     @Override
-    public Ingredient getRepairMaterial() {
-        return repairMaterial.getValue();
+    public Ingredient getRepairIngredient() {
+        return repairMaterial.get();
     }
 }

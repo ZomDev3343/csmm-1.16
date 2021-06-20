@@ -15,8 +15,8 @@ import java.util.function.Supplier;
 
 public enum CustomArmorMaterials implements IArmorMaterial {
 
-    AMETHYST_ARMOR(CSMM.MODID + ":amethyst", 18, new int[]{2, 5, 7, 3}, 11, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0f, 0.0f, () -> {
-        return Ingredient.fromItems(ModItems.AMETHYST_GEM.get());
+    AMETHYST_ARMOR(CSMM.MODID + ":amethyst", 18, new int[]{2, 5, 7, 3}, 11, SoundEvents.ARMOR_EQUIP_IRON, 0.0f, 0.0f, () -> {
+        return Ingredient.of(ModItems.AMETHYST_GEM.get());
     });
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
@@ -40,24 +40,29 @@ public enum CustomArmorMaterials implements IArmorMaterial {
         this.repairMaterial = new LazyValue<>(repairMaterial);
     }
 
-    public int getDurability(EquipmentSlotType slotIn) {
+    @Override
+    public int getDurabilityForSlot(EquipmentSlotType slotIn) {
         return MAX_DAMAGE_ARRAY[slotIn.getIndex()] * this.maxDamageFactor;
     }
 
-    public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+    @Override
+    public int getDefenseForSlot(EquipmentSlotType slotIn) {
         return this.damageReductionAmountArray[slotIn.getIndex()];
     }
 
-    public int getEnchantability() {
+    @Override
+    public int getEnchantmentValue() {
         return this.enchantability;
     }
 
-    public SoundEvent getSoundEvent() {
+    @Override
+    public SoundEvent getEquipSound() {
         return this.soundEvent;
     }
 
-    public Ingredient getRepairMaterial() {
-        return this.repairMaterial.getValue();
+    @Override
+    public Ingredient getRepairIngredient() {
+        return this.repairMaterial.get();
     }
 
     @OnlyIn(Dist.CLIENT)
