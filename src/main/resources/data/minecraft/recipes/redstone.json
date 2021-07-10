@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "minecraft:emerald"
+  },
+  "result": "minecraft:redstone",
+  "experience": 0.2,
+  "cookingtime": 200
+}

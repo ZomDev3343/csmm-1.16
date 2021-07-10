@@ -1,9 +1,6 @@
 package fr.zom.csmm;
 
-import fr.zom.csmm.init.ModBlocks;
-import fr.zom.csmm.init.ModFeatures;
-import fr.zom.csmm.init.ModItems;
-import fr.zom.csmm.init.ModTileEntities;
+import fr.zom.csmm.init.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -20,13 +17,13 @@ public class CSMM
     public CSMM()
     {
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
-
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
         ModTileEntities.TILE_ENTITIES.register(bus);
+
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
 
     }
 
@@ -39,6 +36,10 @@ public class CSMM
 
     private void clientSetup(FMLClientSetupEvent e)
     {
+        IEventBus bus = MinecraftForge.EVENT_BUS;
+
+        ModKeybindings.register();
+        bus.addListener(ModKeybindings::onKeyPress);
 
     }
 

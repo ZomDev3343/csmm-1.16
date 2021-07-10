@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:diamond"
+  },
+  "result": "minecraft:enchanted_golden_apple",
+  "experience": 0.15,
+  "cookingtime": 200
+}

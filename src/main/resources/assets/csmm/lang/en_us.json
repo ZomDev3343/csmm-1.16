@@ -2,5 +2,8 @@
   "item.copper_ingot.name": "Copper Ingot",
   "item.copper_stick.name": "Copper Stick",
   "block.csmm.blue_emerald_block": "Blue Emerald Block",
-  "item.csmm.copper_sword": "Copper Sword"
+  "item.csmm.copper_sword": "Copper Sword",
+
+  "key.csmm.test_key": "Test Key",
+  "key.categories.csmm": "CSMM"
 }

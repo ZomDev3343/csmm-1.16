@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " H ",
+    "HTH",
+    " H "
+  ],
+  "key": {
+    "H": {
+      "item": "minecraft:grass"
+    },
+    "T": {
+      "item": "minecraft:dirt"
+    }
+  },
+  "result": {
+    "item": "minecraft:grass_block"
+  }
+}
