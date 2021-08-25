@@ -46,4 +46,6 @@ public class ModItems {
         }
     });
 
+    public static final RegistryObject<Item> BLACK_SWORD = ITEMS.register("black_sword", ()-> new Item(new Item.Properties().stacksTo(1)));
+
 }
